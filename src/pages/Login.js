@@ -16,7 +16,6 @@ class Login extends React.Component {
 
   chamaApi = (user) => {
     const { history } = this.props;
-    console.log(user);
     createUser(user)
       .then(this.setState({ isLoading: false }))
       .then(() => history.push('/search'));
