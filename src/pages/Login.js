@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { createUser } from '../services/userAPI';
+import Loading from './Loading';
 
 class Login extends React.Component {
   constructor() {
@@ -7,8 +10,19 @@ class Login extends React.Component {
     this.state = {
       cantLog: true,
       login: '',
+      isLoading: false,
     };
   }
+
+  chamaApi = (user) => {
+    const { history } = this.props;
+    console.log(user);
+    createUser(user)
+      .then(this.setState({ isLoading: false }))
+      .then(() => history.push('/search'));
+
+    this.setState(() => ({ isLoading: true }));
+  };
 
   habilitaBtnEnter = () => {
     const { login } = this.state;
@@ -34,30 +48,42 @@ class Login extends React.Component {
   };
 
   render() {
-    const { cantLog, login } = this.state;
+    const { cantLog, login, isLoading } = this.state;
     return (
       <div data-testid="page-login">
-        <form>
-          <input
-            data-testid="login-name-input"
-            type="text"
-            name="login"
-            value={ login }
-            onChange={ this.mudaBtn }
-          />
+        { isLoading
+          ? <Loading />
+          : (
+            <form>
+              <label htmlFor="login">
+                Login
+                <input
+                  data-testid="login-name-input"
+                  type="text"
+                  id="login"
+                  name="login"
+                  value={ login }
+                  onChange={ this.mudaBtn }
+                />
+              </label>
 
-          <button
-            id="btn-enter"
-            data-testid="login-submit-button"
-            type="button"
-            disabled={ cantLog }
-          >
-            Entrar
-          </button>
-        </form>
+              <button
+                id="btn-enter"
+                data-testid="login-submit-button"
+                type="button"
+                disabled={ cantLog }
+                onClick={ () => this.chamaApi(login) }
+              >
+                Entrar
+              </button>
+            </form>) }
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.objectOf.isRequired,
+};
 
 export default Login;
