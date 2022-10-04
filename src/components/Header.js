@@ -16,19 +16,18 @@ class Header extends React.Component {
     const obj = await getUser();
     const nome = await obj.name;
     this.setState({
-      usuario: nome,
       isLoading: false,
+      usuario: nome,
     });
   }
 
   render() {
     const { isLoading, usuario } = this.state;
-
     return (
       <header
         data-testid="header-component"
       >
-        {isLoading ? <Loading /> : usuario }
+        {isLoading ? <Loading /> : <span data-testid="header-user-name">{usuario}</span> }
       </header>
     );
   }
