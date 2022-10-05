@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../pages/Loading';
 import getMusic from '../services/musicsAPI';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -22,6 +22,9 @@ class MusicCard extends React.Component {
     this.setState({
       musicList: musics,
     });
+
+    const listDasMusicas = await getFavoriteSongs();
+    this.setState({ favoritesSongs: listDasMusicas });
   }
 
   favoritaMusic = async ({ target }) => {
