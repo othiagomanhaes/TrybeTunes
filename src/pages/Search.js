@@ -14,28 +14,25 @@ class Search extends React.Component {
       isLoading: false,
       music: undefined,
       artist: '',
-      firstLoad: true,
+      hide: false,
     };
   }
-
-  // goToAlbum = (evt) => {
-  //   console.log(evt);
-  // };
 
   onKeyPressHandler = () => {
     console.log('onKeyPressHandler');
   };
 
-  fazBusca = (artist) => {
-    searchAlbumsAPI(artist)
-      .then((resp) => this.setState((stateBefore) => ({
-        music: resp,
-        artist: stateBefore.searchArt,
-        isLoading: false,
-        searchArt: '',
-        firstLoad: false,
-      })));
+  fazBusca = async (artist) => {
     this.setState({ isLoading: true });
+    const resp = await searchAlbumsAPI(artist);
+    const respFiltered = resp.filter((song, ind) => ind !== 0);
+    this.setState((stateBefore) => ({
+      music: respFiltered,
+      artist: stateBefore.searchArt,
+      isLoading: false,
+      searchArt: '',
+      hide: true,
+    }));
   };
 
   habilitaBtnEnter = () => {
@@ -62,7 +59,7 @@ class Search extends React.Component {
   };
 
   render() {
-    const { searchArt, cantSearch, isLoading, artist, music, firstLoad } = this.state;
+    const { searchArt, cantSearch, isLoading, artist, music, hide } = this.state;
     return (
       <div data-testid="page-search">
         <Header />
@@ -91,31 +88,32 @@ class Search extends React.Component {
           {artist ? <p>{`Resultado de álbuns de: ${artist}`}</p> : null}
         </div>
         <div>
-          { (firstLoad && <div> </div>)
-          || (music.length > 0
-            ? (
-              music.map(({ artistName,
-                collectionId,
-                collectionName,
-                artworkUrl100,
-              }, ind) => (
-                <Link to={ `/album/${collectionId}` } key={ collectionId }>
-                  <section
-                    // onClick={ this.goToAlbum }
-                    role="link" // Coment: 1
-                    onKeyPress={ this.onKeyPressHandler } // Coment: 2
-                    tabIndex={ ind }
-                    data-testid={ `link-to-album-${collectionId}` }
-
+          { hide && (
+            music.length > 0
+              ? (
+                music.map(({ artistName,
+                  collectionId,
+                  collectionName,
+                  artworkUrl100,
+                }, ind) => (
+                  <Link
+                    to={ `/album/${collectionId}` }
+                    key={ collectionId }
                   >
-                    <img src={ artworkUrl100 } alt={ collectionName } />
-                    <p><strong>{collectionName}</strong></p>
-                    <p>{artistName}</p>
-                  </section>
-                </Link>
-              ))
-            )
-            : <p>Nenhum álbum foi encontrado</p>)}
+                    <section
+                      role="link" // Coment: 1
+                      onKeyPress={ this.onKeyPressHandler } // Coment: 2
+                      tabIndex={ ind }
+                      data-testid={ `link-to-album-${collectionId}` }
+                    >
+                      <img src={ artworkUrl100 } alt={ collectionName } />
+                      <p>{collectionName}</p>
+                      <p>{artistName}</p>
+                    </section>
+                  </Link>
+                ))
+              )
+              : <p>Nenhum álbum foi encontrado</p>)}
         </div>
       </div>
     );

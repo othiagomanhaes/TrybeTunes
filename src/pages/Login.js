@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import '../css/login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -53,29 +54,32 @@ class Login extends React.Component {
         { isLoading
           ? <Loading />
           : (
-            <form>
-              <label htmlFor="login">
-                Login
-                <input
-                  data-testid="login-name-input"
-                  type="text"
-                  id="login"
-                  name="login"
-                  value={ login }
-                  onChange={ this.mudaBtn }
-                />
-              </label>
+            <div id="divLogin">
+              <h2>TrybeTunes</h2>
+              <form>
+                <label htmlFor="login">
+                  <input
+                    data-testid="login-name-input"
+                    placeholder="qual é o seu nome?"
+                    type="text"
+                    id="login"
+                    name="login"
+                    value={ login }
+                    onChange={ this.mudaBtn }
+                  />
+                </label>
 
-              <button
-                id="btn-enter"
-                data-testid="login-submit-button"
-                type="button"
-                disabled={ cantLog }
-                onClick={ () => this.chamaApi(login) }
-              >
-                Entrar
-              </button>
-            </form>) }
+                <button
+                  id="btn-enter"
+                  data-testid="login-submit-button"
+                  type="button"
+                  disabled={ cantLog }
+                  onClick={ () => this.chamaApi(login) }
+                >
+                  Entrar
+                </button>
+              </form>
+            </div>) }
       </div>
     );
   }
