@@ -147,6 +147,10 @@ class ProfileEdit extends React.Component {
   }
 }
 
+ProfileEdit.propTypes = {
+  history: PropTypes.objectOf.isRequired,
+};
+
 export default ProfileEdit;
 
 // Coments 1: https://www.horadecodar.com.br/2020/09/07/expressao-regular-para-validar-e-mail-javascript-regex/
