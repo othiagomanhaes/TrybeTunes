@@ -20,7 +20,6 @@ class Album extends React.Component {
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
-    const { musicList } = this.state;
 
     const musicsNofilter = await getMusic(id);
     const musics = musicsNofilter.filter((song, ind) => ind !== 0);
