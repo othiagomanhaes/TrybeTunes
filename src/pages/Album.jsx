@@ -75,18 +75,18 @@ class Album extends React.Component {
           {
             musicList.length > 0
               ? (
-                <section>
+                <>
                   <img
                     src={ musicList[0].artworkUrl100 }
                     alt={ musicList[0].collectionName }
                   />
-                  <p data-testid="album-name">
-                    <strong>
+                  <p>
+                    <strong data-testid="album-name">
                       {musicList[0].collectionName}
                     </strong>
                   </p>
                   <p data-testid="artist-name">{musicList[0].artistName}</p>
-                </section>
+                </>
               )
               : <Loading />
           }
