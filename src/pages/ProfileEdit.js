@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from './Loading';
 import { getUser, updateUser } from '../services/userAPI';
