@@ -14,17 +14,20 @@ class Album extends React.Component {
       musicList: [],
       isLoading: true,
       favoritesSongs: [],
+      albumProperties: [],
     };
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
+    const { musicList } = this.state;
 
     const musicsNofilter = await getMusic(id);
     const musics = musicsNofilter.filter((song, ind) => ind !== 0);
     this.setState({
       musicList: musics,
       isLoading: false,
+      albumProperties: musicsNofilter,
     });
 
     const listDasMusicas = await getFavoriteSongs();
@@ -67,7 +70,7 @@ class Album extends React.Component {
   };
 
   render() {
-    const { musicList, isLoading, favoritesSongs } = this.state;
+    const { musicList, isLoading, favoritesSongs, albumProperties } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -77,15 +80,15 @@ class Album extends React.Component {
               ? (
                 <>
                   <img
-                    src={ musicList[0].artworkUrl100 }
-                    alt={ musicList[0].collectionName }
+                    src={ albumProperties[0].artworkUrl100 }
+                    alt={ albumProperties[0].collectionName }
                   />
                   <p>
                     <strong data-testid="album-name">
-                      {musicList[0].collectionName}
+                      {albumProperties[0].collectionName}
                     </strong>
                   </p>
-                  <p data-testid="artist-name">{musicList[0].artistName}</p>
+                  <p data-testid="artist-name">{albumProperties[0].artistName}</p>
                 </>
               )
               : <Loading />
