@@ -50,13 +50,13 @@ class Login extends React.Component {
   render() {
     const { cantLog, login, isLoading } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" id="page-login">
         { isLoading
           ? <Loading />
           : (
             <div id="divLogin">
-              <h2>TrybeTunes</h2>
-              <form>
+              <h2 id="titulo-tunes">TrybeTunes</h2>
+              <form className="class-form">
                 <label htmlFor="login">
                   <input
                     data-testid="login-name-input"
@@ -79,6 +79,7 @@ class Login extends React.Component {
                   Entrar
                 </button>
               </form>
+              <div id="div-gif" />
             </div>) }
       </div>
     );
