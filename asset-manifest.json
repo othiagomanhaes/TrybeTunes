@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/trybetunes/static/css/main.27b0c86b.css",
+    "main.js": "/trybetunes/static/js/main.99c7e62e.js",
+    "index.html": "/trybetunes/index.html",
+    "main.27b0c86b.css.map": "/trybetunes/static/css/main.27b0c86b.css.map",
+    "main.99c7e62e.js.map": "/trybetunes/static/js/main.99c7e62e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27b0c86b.css",
+    "static/js/main.99c7e62e.js"
+  ]
+}
