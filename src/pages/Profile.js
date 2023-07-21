@@ -40,7 +40,7 @@ class Profile extends React.Component {
           {isLoading ? <Loading /> : (
             <>
               <img data-testid="profile-image" src={ image } alt={ user } />
-              <Link to="/profile/edit">Editar perfil</Link>
+              <Link to="/trybetunes/profile/edit">Editar perfil</Link>
               <p>Nome</p>
               <p>{user}</p>
               <p>E-mail</p>

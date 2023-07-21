@@ -19,7 +19,7 @@ class Login extends React.Component {
     const { history } = this.props;
     createUser(user)
       .then(this.setState({ isLoading: false }))
-      .then(() => history.push('/search'));
+      .then(() => history.push('/trybetunes/search'));
 
     this.setState(() => ({ isLoading: true }));
   };

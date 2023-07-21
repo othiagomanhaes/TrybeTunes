@@ -42,7 +42,7 @@ class Header extends React.Component {
             <li>
               <Link
                 data-testid="link-to-favorites"
-                to="/favorites"
+                to="/trybetunes/favorites"
               >
                 Favorites
               </Link>
@@ -50,7 +50,7 @@ class Header extends React.Component {
             <li>
               <Link
                 data-testid="link-to-profile"
-                to="/profile"
+                to="/trybetunes/profile"
               >
                 Profile
               </Link>

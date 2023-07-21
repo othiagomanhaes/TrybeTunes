@@ -98,7 +98,10 @@ class Search extends React.Component {
                 collectionName,
                 artworkUrl100,
               }, ind) => (
-                <Link to={ `/album/${collectionId}` } key={ collectionId }>
+                <Link
+                  to={ `/trybetunes/album/${collectionId}` }
+                  key={ collectionId }
+                >
                   <section
                     // onClick={ this.goToAlbum }
                     role="link" // Coment: 1
