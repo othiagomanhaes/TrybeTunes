@@ -1,8 +1,15 @@
 import React from 'react';
+import '../css/loading.css';
 
 class Loading extends React.Component {
   render() {
-    return <div>Carregando...</div>;
+    return (
+      <div className="music-symbols">
+        <div className="symbol">♫</div>
+        <div className="symbol">♪</div>
+        <div className="symbol">♩</div>
+      </div>
+    );
   }
 }
 

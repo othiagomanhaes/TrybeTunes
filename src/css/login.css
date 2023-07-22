@@ -45,16 +45,19 @@ label {
 
 #login {
   text-align: center;
+  font-family: 'Asap', sans-serif;
   border-radius: 100px;
   height: 100%;
   margin: 0 auto;
   width: 100%;
   border: none;
+  background-color: white;
 }
 
 #btn-enter {
   height: 40%;
   border-radius: 100px;
+  font-family: 'Asap', sans-serif;
   border: none;
   width: 90%;
   margin: 0 auto;
