@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from './Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import lupa from '../images/lupa.png';
+import '../css/search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -16,10 +18,6 @@ class Search extends React.Component {
       firstLoad: true,
     };
   }
-
-  // goToAlbum = (evt) => {
-  //   console.log(evt);
-  // };
 
   onKeyPressHandler = () => {
     console.log('onKeyPressHandler');
@@ -63,34 +61,40 @@ class Search extends React.Component {
   render() {
     const { searchArt, cantSearch, isLoading, artist, music, firstLoad } = this.state;
     return (
-      <div data-testid="page-search">
+      <>
         <Header />
-        {isLoading
-          ? <Loading />
-          : (
-            <form>
-              <input
-                data-testid="search-artist-input"
-                name="searchArt"
-                value={ searchArt }
-                type="text"
-                placeholder="Nome do Artista"
-                onChange={ this.mudaBtn }
-              />
-              <button
-                type="button"
-                data-testid="search-artist-button"
-                disabled={ cantSearch }
-                onClick={ () => this.fazBusca(searchArt) }
-              >
-                Pesquisar
-              </button>
-            </form>)}
-        <div>
-          {artist ? <p>{`Resultado de álbuns de: ${artist}`}</p> : null}
-        </div>
-        <div>
-          { (firstLoad && <div> </div>)
+        <div
+          data-testid="page-search"
+          id="div-search"
+        >
+          {isLoading
+            ? <Loading />
+            : (
+              <form id="form-search">
+                <input
+                  data-testid="search-artist-input"
+                  name="searchArt"
+                  value={ searchArt }
+                  type="text"
+                  placeholder="Nome do Artista"
+                  onChange={ this.mudaBtn }
+                  id="input-search"
+                />
+                <button
+                  type="button"
+                  data-testid="search-artist-button"
+                  disabled={ cantSearch }
+                  onClick={ () => this.fazBusca(searchArt) }
+                  id="btn-search"
+                >
+                  <img src={ lupa } alt="imagem de uma lupa" />
+                </button>
+              </form>)}
+          <div>
+            {artist ? <p>{`Resultado de álbuns de: ${artist}`}</p> : null}
+          </div>
+          <div>
+            { (firstLoad && <div> </div>)
           || (music.length > 0
             ? (
               music.map(({ artistName,
@@ -103,7 +107,6 @@ class Search extends React.Component {
                   key={ collectionId }
                 >
                   <section
-                    // onClick={ this.goToAlbum }
                     role="link" // Coment: 1
                     onKeyPress={ this.onKeyPressHandler } // Coment: 2
                     tabIndex={ ind }
@@ -118,8 +121,9 @@ class Search extends React.Component {
               ))
             )
             : <p>Nenhum álbum foi encontrado</p>)}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
