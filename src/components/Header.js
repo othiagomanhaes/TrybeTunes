@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import Loading from '../pages/Loading';
+import UserLoading from '../pages/UserLoading';
+import '../css/header.css';
 
 class Header extends React.Component {
   constructor() {
@@ -25,39 +26,49 @@ class Header extends React.Component {
   render() {
     const { isLoading, usuario } = this.state;
     return (
-      <>
+      <div id="div-header">
         <header
           data-testid="header-component"
         >
           {isLoading
-            ? <Loading /> : (
-              <span data-testid="header-user-name">
+            ? <UserLoading /> : (
+              <span data-testid="header-user-name" id="user-span">
                 {usuario}
               </span>) }
         </header>
 
-        <nav>
-          <ul>
-            <li><Link data-testid="link-to-search" to="/search">Search</Link></li>
-            <li>
+        <nav id="nav-list">
+          <ul id="links-list">
+            <li className="item-list">
+              <Link
+                data-testid="link-to-search"
+                to="/trybetunes/search"
+                className="item-list-link"
+              >
+                Search
+              </Link>
+            </li>
+            <li className="item-list">
               <Link
                 data-testid="link-to-favorites"
                 to="/trybetunes/favorites"
+                className="item-list-link"
               >
                 Favorites
               </Link>
             </li>
-            <li>
+            <li className="item-list">
               <Link
                 data-testid="link-to-profile"
                 to="/trybetunes/profile"
+                className="item-list-link"
               >
                 Profile
               </Link>
             </li>
           </ul>
         </nav>
-      </>
+      </div>
     );
   }
 }

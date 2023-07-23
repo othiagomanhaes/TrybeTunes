@@ -1,0 +1,21 @@
+.simbolo-musica {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+}
+  
+.simbolo {
+  animation: move 1s infinite;
+  font-size: 300%;
+  color: white;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes move {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

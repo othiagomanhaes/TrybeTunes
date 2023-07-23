@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600&display=swap');
+
+
+#div-header {
+  background-color: rgba(177, 175, 173, 0.6);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  height: 30%;
+  width: 100%;
+  color: white;
+}
+
+#nav-list {
+  /* border: 1px solid green; */
+  width: 60%;
+}
+
+#links-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.item-list {
+  list-style-type: none;
+  text-decoration-line: none;
+  font-size: 20px;
+  font-family: 'Asap', sans-serif;
+}
+
+.item-list:hover {
+  font-weight: 800;
+}
+
+.item-list-link {
+  text-decoration: none;
+  color: white;
+}
+
+#user-span {
+  font-family: 'Asap', sans-serif;
+}
