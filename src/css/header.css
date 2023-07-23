@@ -11,17 +11,17 @@
   height: 30%;
   width: 100%;
   color: white;
-  /* position: relative; */
 }
 
 #nav-list {
-  /* border: 1px solid green; */
   width: 60%;
 }
 
 #links-list {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  padding: 0;
 }
 
 .item-list {
@@ -42,4 +42,14 @@
 
 #user-span {
   font-family: 'Asap', sans-serif;
+}
+
+@media (max-width: 460px) {
+  #div-header {
+    flex-direction: column;
+  }
+  
+  #links-list {
+    flex-direction: column;
+  }
 }

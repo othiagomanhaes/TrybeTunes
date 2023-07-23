@@ -90,10 +90,11 @@ class Search extends React.Component {
                   <img src={ lupa } alt="imagem de uma lupa" />
                 </button>
               </form>)}
-          <div>
-            {artist ? <p>{`Resultado de álbuns de: ${artist}`}</p> : null}
+          <div id="div-artist-name">
+            {artist
+              ? <p className="p-artist">{`Resultado de álbuns de: ${artist}`}</p> : null}
           </div>
-          <div>
+          <div id="div-albuns">
             { (firstLoad && <div> </div>)
           || (music.length > 0
             ? (
@@ -105,22 +106,27 @@ class Search extends React.Component {
                 <Link
                   to={ `/trybetunes/album/${collectionId}` }
                   key={ collectionId }
+                  className="card-albuns"
                 >
                   <section
                     role="link" // Coment: 1
                     onKeyPress={ this.onKeyPressHandler } // Coment: 2
                     tabIndex={ ind }
                     data-testid={ `link-to-album-${collectionId}` }
-
+                    className="section-album"
                   >
-                    <img src={ artworkUrl100 } alt={ collectionName } />
-                    <p><strong>{collectionName}</strong></p>
-                    <p>{artistName}</p>
+                    <img
+                      src={ artworkUrl100 }
+                      alt={ collectionName }
+                      className="img-album"
+                    />
+                    <p className="collection-name"><strong>{collectionName}</strong></p>
+                    <p className="artist-name">{artistName}</p>
                   </section>
                 </Link>
               ))
             )
-            : <p>Nenhum álbum foi encontrado</p>)}
+            : <p className="p-artist">Nenhum álbum foi encontrado</p>)}
           </div>
         </div>
       </>

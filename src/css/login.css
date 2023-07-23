@@ -52,6 +52,7 @@ label {
   width: 100%;
   border: none;
   background-color: white;
+  opacity: 0.5;
 }
 
 #btn-enter {
