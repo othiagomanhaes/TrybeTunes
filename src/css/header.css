@@ -52,4 +52,8 @@
   #links-list {
     flex-direction: column;
   }
+
+  #header-component {
+    margin: 2% 0;
+  }
 }

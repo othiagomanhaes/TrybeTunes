@@ -29,6 +29,7 @@ class Header extends React.Component {
       <div id="div-header">
         <header
           data-testid="header-component"
+          id="header-component"
         >
           {isLoading
             ? <UserLoading /> : (
