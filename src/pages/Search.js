@@ -19,10 +19,6 @@ class Search extends React.Component {
     };
   }
 
-  onKeyPressHandler = () => {
-    console.log('onKeyPressHandler');
-  };
-
   fazBusca = (artist) => {
     searchAlbumsAPI(artist)
       .then((resp) => this.setState((stateBefore) => ({
@@ -58,6 +54,18 @@ class Search extends React.Component {
     }, () => this.habilitaBtnEnter());
   };
 
+  // callWithEnter = (event) => {
+  //   // Verificar se a tecla pressionada é a tecla "Enter" (código 13)
+  //   console.log(event.key);
+  //   const { searchArt } = this.state;
+  //   if (event.key === 'Enter') {
+  //     // Chamar a função fazBusca com o valor do campo de busca (searchArt)
+  //     this.fazBusca(searchArt);
+  //     // Prevenir o comportamento padrão do Enter que é enviar o formulário
+  //     event.preventDefault();
+  //   }
+  // };
+
   render() {
     const { searchArt, cantSearch, isLoading, artist, music, firstLoad } = this.state;
     return (
@@ -85,6 +93,7 @@ class Search extends React.Component {
                   data-testid="search-artist-button"
                   disabled={ cantSearch }
                   onClick={ () => this.fazBusca(searchArt) }
+                  // onKeyDown={ this.callWithEnter }
                   id="btn-search"
                 >
                   <img src={ lupa } alt="imagem de uma lupa" />
