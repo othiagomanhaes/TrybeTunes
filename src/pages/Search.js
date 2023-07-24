@@ -54,17 +54,13 @@ class Search extends React.Component {
     }, () => this.habilitaBtnEnter());
   };
 
-  // callWithEnter = (event) => {
-  //   // Verificar se a tecla pressionada é a tecla "Enter" (código 13)
-  //   console.log(event.key);
-  //   const { searchArt } = this.state;
-  //   if (event.key === 'Enter') {
-  //     // Chamar a função fazBusca com o valor do campo de busca (searchArt)
-  //     this.fazBusca(searchArt);
-  //     // Prevenir o comportamento padrão do Enter que é enviar o formulário
-  //     event.preventDefault();
-  //   }
-  // };
+  keyHandler = (event) => {
+    const { artist } = this.state;
+    if (event.key === 'Enter') {
+      this.fazBusca(artist);
+      // console.log(event.key);
+    }
+  };
 
   render() {
     const { searchArt, cantSearch, isLoading, artist, music, firstLoad } = this.state;
@@ -86,6 +82,7 @@ class Search extends React.Component {
                   type="text"
                   placeholder="Nome do Artista"
                   onChange={ this.mudaBtn }
+                  onKeyDown={ this.keyHandler }
                   id="input-search"
                 />
                 <button
@@ -93,7 +90,6 @@ class Search extends React.Component {
                   data-testid="search-artist-button"
                   disabled={ cantSearch }
                   onClick={ () => this.fazBusca(searchArt) }
-                  // onKeyDown={ this.callWithEnter }
                   id="btn-search"
                 >
                   <img src={ lupa } alt="imagem de uma lupa" />

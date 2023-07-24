@@ -15,6 +15,13 @@ class Login extends React.Component {
     };
   }
 
+  keyHandler = (event) => {
+    const { login } = this.state;
+    if (event.key === 'Enter') {
+      this.chamaApi(login);
+    }
+  };
+
   chamaApi = (user) => {
     const { history } = this.props;
     createUser(user)
@@ -66,6 +73,8 @@ class Login extends React.Component {
                     name="login"
                     value={ login }
                     onChange={ this.mudaBtn }
+                    onKeyDown={ this.keyHandler }
+
                   />
                 </label>
 
