@@ -1,6 +1,8 @@
 .simbolo-musica {
   display: flex;
   justify-content: space-between;
+  animation-fill-mode: both;
+  transform-origin: center bottom;
   font-size: 10px;
 }
   
@@ -9,6 +11,10 @@
   font-size: 300%;
   color: white;
   transform: translate(-50%, -50%);
+}
+
+.simbolo:nth-child(2) {
+  animation-delay: 0.5s;
 }
 
 @keyframes move {

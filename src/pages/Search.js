@@ -20,6 +20,7 @@ class Search extends React.Component {
   }
 
   fazBusca = (artist) => {
+    this.setState({ isLoading: true });
     searchAlbumsAPI(artist)
       .then((resp) => this.setState((stateBefore) => ({
         music: resp,
@@ -28,7 +29,6 @@ class Search extends React.Component {
         searchArt: '',
         firstLoad: false,
       })));
-    this.setState({ isLoading: true });
   };
 
   habilitaBtnEnter = () => {
@@ -55,10 +55,9 @@ class Search extends React.Component {
   };
 
   keyHandler = (event) => {
-    const { artist } = this.state;
+    const { searchArt } = this.state;
     if (event.key === 'Enter') {
-      this.fazBusca(artist);
-      // console.log(event.key);
+      this.fazBusca(searchArt);
     }
   };
 

@@ -52,18 +52,25 @@ label {
   width: 100%;
   border: none;
   background-color: white;
+  color: black;
   opacity: 0.5;
+}
+
+#login::placeholder {
+  color: rgb(56, 56, 56);
 }
 
 #btn-enter {
   height: 40%;
   border-radius: 100px;
   font-family: 'Asap', sans-serif;
+  color: rgba(58, 57, 56, 0.6);
   border: none;
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
   background-color: white;
+  cursor: pointer;
 }
 
 #btn-enter:disabled {

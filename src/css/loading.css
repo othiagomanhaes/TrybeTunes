@@ -6,12 +6,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation-fill-mode: both;
+  transform-origin: center bottom;
 }
   
 .symbol {
   animation: move 1s infinite;
   font-size: 300%;
   color: white;
+}
+
+.symbol:nth-child(2) {
+  animation-delay: 0.5s;
 }
   
 @keyframes move {
