@@ -5,6 +5,7 @@ import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
 import getMusic from '../services/musicsAPI';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import '../css/album.css';
 
 class Album extends React.Component {
   constructor() {
@@ -73,36 +74,41 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <section>
-          {
-            musicList.length > 0
-              ? (
-                <>
-                  <img
-                    src={ albumProperties[0].artworkUrl100 }
-                    alt={ albumProperties[0].collectionName }
-                  />
-                  <p>
-                    <strong data-testid="album-name">
-                      {albumProperties[0].collectionName}
-                    </strong>
-                  </p>
-                  <p data-testid="artist-name">{albumProperties[0].artistName}</p>
-                </>
-              )
-              : <Loading />
-          }
-        </section>
-        { isLoading ? <Loading /> : musicList
-          .map(({ trackId, trackName, previewUrl }) => (
-            <MusicCard
-              favoritaMusic={ this.favoritaMusic }
-              favoritesSongs={ favoritesSongs }
-              key={ trackId }
-              trackId={ trackId }
-              trackName={ trackName }
-              previewUrl={ previewUrl }
-            />)) }
+        <div id="page-album">
+          <section className="section-album2">
+            {
+              musicList.length > 0
+                ? (
+                  <>
+                    <img
+                      src={ albumProperties[0].artworkUrl100 }
+                      alt={ albumProperties[0].collectionName }
+                      id="imagem-album"
+                    />
+                    <p>
+                      <strong data-testid="album-name">
+                        {albumProperties[0].collectionName}
+                      </strong>
+                    </p>
+                    <p data-testid="artist-name">{albumProperties[0].artistName}</p>
+                  </>
+                )
+                : <Loading />
+            }
+          </section>
+          <div className="todas-musicas">
+            { isLoading ? <Loading /> : musicList
+              .map(({ trackId, trackName, previewUrl }) => (
+                <MusicCard
+                  favoritaMusic={ this.favoritaMusic }
+                  favoritesSongs={ favoritesSongs }
+                  key={ trackId }
+                  trackId={ trackId }
+                  trackName={ trackName }
+                  previewUrl={ previewUrl }
+                />)) }
+          </div>
+        </div>
       </div>
     );
   }

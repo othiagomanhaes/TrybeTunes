@@ -1,0 +1,53 @@
+.div-MusicaCard {
+  /* border: 1px solid green; */
+  width: 45%;
+  height: 150px;
+  margin: 2%;
+  background-color: rgba(177, 175, 173, 0.6);
+  color: white;
+	border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-track-name {
+  margin-left: 5%;
+  width: 60ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.p-track-name:hover {
+  
+}
+
+.titulo-favoritar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* border: 1px solid purple; */
+  padding: 0;
+}
+
+.label-music {
+  min-width: 10%;
+  display: flex;
+  border: 1px solid orange;
+  width: 10%;
+  height: 60%;
+  max-height: 40px;
+  margin: 0;
+}
+
+.div-audio {
+  margin-left: auto;
+  margin-right: auto;
+  /* border: 1px solid red; */
+  width: 95%;
+  display: flex;
+  justify-content: center;
+}
