@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600&display=swap');
+
+
 #page-album {
 	/* border: 1px solid red; */
 	display: flex;
 	width: 85%;
 	margin: 5% auto;
 	justify-content: space-around;
+  font-family: 'Asap', sans-serif;
 }
 
 
@@ -19,6 +23,7 @@
 	align-items: center;
 	justify-content: space-around;
 	margin-top: 5%;
+  /* padding: 5%; */
 }
 
 #imagem-album {

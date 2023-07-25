@@ -20,9 +20,6 @@
   text-overflow: ellipsis;
 }
 
-.p-track-name:hover {
-  
-}
 
 .titulo-favoritar {
   display: flex;
@@ -35,12 +32,34 @@
 
 .label-music {
   min-width: 10%;
-  display: flex;
-  border: 1px solid orange;
-  width: 10%;
+  display: inline-block;
+  /* border: 1px solid orange; */
+  width: auto;
   height: 60%;
   max-height: 40px;
   margin: 0;
+  cursor: pointer;
+}
+
+.input-music-fav {
+  display: none;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.custom-checkbox.checked {
+  background-image: url('https://cdn-icons-png.flaticon.com/128/148/148841.png');
+}
+
+.custom-checkbox {
+  background-image: url('https://cdn-icons-png.flaticon.com/128/126/126482.png');
 }
 
 .div-audio {

@@ -5,21 +5,28 @@ import '../css/musicCard.css';
 class MusicCard extends React.Component {
   render() {
     const { trackName, previewUrl, trackId, favoritaMusic, favoritesSongs } = this.props;
+    const isFavorite = favoritesSongs.some((song) => trackId === song.trackId);
     return (
       <div className="div-MusicaCard">
         <div className="titulo-favoritar">
           <p className="p-track-name" title={ trackName }>{trackName}</p>
-          <label htmlFor={ trackId } className="label-music">
+          <label
+            htmlFor={ trackId }
+            className="label-music"
+          >
             {/* Favorita */}
             <input
               onChange={ favoritaMusic }
+              onClick={ this.changeFav }
               type="checkbox"
               name={ trackId }
               checked={ favoritesSongs
                 .some((song) => trackId === song.trackId) }
               id={ trackId }
               data-testid={ `checkbox-music-${trackId}` }
+              className="input-music-fav"
             />
+            <span className={ `custom-checkbox ${isFavorite ? 'checked' : ''}` } />
           </label>
         </div>
         <div className="div-audio">
