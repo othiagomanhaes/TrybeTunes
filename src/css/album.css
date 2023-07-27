@@ -31,6 +31,14 @@
   margin: 4%;
 }
 
+#p-album-title {
+  text-align: center;
+}
+
+#p-artista {
+  text-align: center;
+}
+
 .envolve-carrossel {
   width: 60%;
   /* border: 1px solid green; */
@@ -70,6 +78,9 @@
   background-size: auto; */
 }
 
+.todas-musicas::-webkit-scrollbar-thumb:hover {
+  background: rgb(177, 175, 173);
+}
 
 @media (max-width: 860px) {
   #page-album {
@@ -85,13 +96,14 @@
     align-items: center;
   }
 
+  .envolve-carrossel {
+    width: 85%;
+  }
+
   .todas-musicas {
     width: 98%;
   }
 
-  .envolve-carrossel {
-    width: 85%;
-  }
 }
 
 @media (max-width: 480px) {
@@ -104,12 +116,14 @@
     width: 85%;
   }
 
-  .todas-musicas {
-    width: 90%;
+  .envolve-carrossel {
+    width: 100%;
+    /* border: 1px solid red; */
   }
 
-  .envolve-carrossel {
-    width: 85%;
+  .todas-musicas {
+    width: 100%;
+    /* border: 1px solid green; */
   }
 
   .todas-musicas::-webkit-scrollbar {

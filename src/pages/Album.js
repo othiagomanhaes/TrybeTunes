@@ -98,12 +98,14 @@ class Album extends React.Component {
                       alt={ albumProperties[0].collectionName }
                       id="imagem-album"
                     />
-                    <p>
+                    <p id="p-album-title">
                       <strong data-testid="album-name">
                         {albumProperties[0].collectionName}
                       </strong>
                     </p>
-                    <p data-testid="artist-name">{albumProperties[0].artistName}</p>
+                    <p data-testid="artist-name" id="p-artista">
+                      {albumProperties[0].artistName}
+                    </p>
                   </>
                 )
                 : <Loading />
