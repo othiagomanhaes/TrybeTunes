@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import '../css/favorites.css';
 
 class Favorites extends React.Component {
   constructor() {
@@ -66,17 +67,21 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites">
         <Header />
-        <p>Favorites</p>
-        { isLoading ? <Loading /> : favoritesSongs
-          .map(({ trackId, trackName, previewUrl }) => (
-            <MusicCard
-              favoritaMusic={ this.favoritaMusic }
-              favoritesSongs={ favoritesSongs }
-              key={ trackId }
-              trackId={ trackId }
-              trackName={ trackName }
-              previewUrl={ previewUrl }
-            />)) }
+        <h1 id="h1-favorites">Favorites Songs</h1>
+        <div className="all-songs">
+          <div className="all-songs-inner">
+            { isLoading ? <Loading /> : favoritesSongs
+              .map(({ trackId, trackName, previewUrl }) => (
+                <MusicCard
+                  favoritaMusic={ this.favoritaMusic }
+                  favoritesSongs={ favoritesSongs }
+                  key={ trackId }
+                  trackId={ trackId }
+                  trackName={ trackName }
+                  previewUrl={ previewUrl }
+                />)) }
+          </div>
+        </div>
       </div>
     );
   }

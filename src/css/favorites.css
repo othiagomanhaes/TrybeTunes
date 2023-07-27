@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600&display=swap');
+
+
+#h1-favorites {
+  text-align: center;
+  color: white;
+  font-family: 'Asap', sans-serif;
+}
+
+.all-songs {
+  display: flex;
+  /* border: 1px solid red; */
+  width: 85%;
+  margin: auto;
+}
+
+.all-songs-inner {
+  display: flex;
+  /* border: 1px solid blue; */
+  border-radius: 10px;
+  width: 85%;
+  height: 500px;
+  flex-wrap: wrap;
+  margin: auto;
+  box-shadow: 
+        inset 0px 11px 8px -10px rgba(177, 175, 173, 0.9),
+        inset 0px -11px 8px -10px rgba(177, 175, 173, 0.9);
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.all-songs-inner::-webkit-scrollbar {
+  background: rgba(255, 255, 255, 0);
+  width: 15px;
+  border-radius: 10px;
+}
+
+.all-songs-inner::-webkit-scrollbar-thumb {
+  background: rgb(204, 201, 201);
+  border-radius: 10px;
+  /* background-image: url('../images/lista-de-reproducao.png');
+  background-size: auto; */
+}
+
+.all-songs-inner::-webkit-scrollbar-thumb:hover {
+  background: rgb(177, 175, 173);
+}
+
+@media (max-width: 480px) {
+  .all-songs-inner::-webkit-scrollbar {
+    width: 10px;
+  }
+}
