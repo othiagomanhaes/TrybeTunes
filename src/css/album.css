@@ -15,26 +15,104 @@
   /* border: 1px solid blue; */
 	display: flex;
 	width: 30%;
-	height: 400px;
+	height: 85%;
 	flex-direction: column;
   background-color: rgba(177, 175, 173, 0.6);
   color: white;
 	border-radius: 10px;
 	align-items: center;
-	justify-content: space-around;
-	margin-top: 5%;
-  /* padding: 5%; */
+	justify-content: center;
+	margin: 5%;
 }
 
 #imagem-album {
 	width: 50%;
 	height: 50%;
+  margin: 4%;
+}
+
+.envolve-carrossel {
+  width: 60%;
+  /* border: 1px solid green; */
+  display: flex;
 }
 
 .todas-musicas {
 	/* border: 1px solid yellow; */
-	width: 60%;
+	width: 100%;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+  height: 500px;
+  overflow: hidden;
+  box-shadow: 
+        inset 0px 11px 8px -10px rgba(177, 175, 173, 0.9),
+        inset 0px -11px 8px -10px rgba(177, 175, 173, 0.9); 
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
+.todas-musicas-inner {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.todas-musicas::-webkit-scrollbar {
+  background: rgba(255, 255, 255, 0);
+  width: 15px;
+  border-radius: 10px;
+}
+
+.todas-musicas::-webkit-scrollbar-thumb {
+  background: rgb(204, 201, 201);
+  border-radius: 10px;
+  /* background-image: url('../images/lista-de-reproducao.png');
+  background-size: auto; */
+}
+
+
+@media (max-width: 860px) {
+  #page-album {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .section-album2 {
+    width: 65%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .todas-musicas {
+    width: 98%;
+  }
+
+  .envolve-carrossel {
+    width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  #page-album {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-album2 {
+    width: 85%;
+  }
+
+  .todas-musicas {
+    width: 90%;
+  }
+
+  .envolve-carrossel {
+    width: 85%;
+  }
+
+  .todas-musicas::-webkit-scrollbar {
+    width: 10px;
+  }
 }

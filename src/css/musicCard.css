@@ -37,7 +37,7 @@
   width: auto;
   height: 60%;
   max-height: 40px;
-  margin: 0;
+  margin-right: 2%;
   cursor: pointer;
 }
 
@@ -52,14 +52,15 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  /* border: 1px solid red; */
 }
 
 .custom-checkbox.checked {
-  background-image: url('https://cdn-icons-png.flaticon.com/128/148/148841.png');
+  background-image: url('../images/estrela-toda-branca.png');
 }
 
 .custom-checkbox {
-  background-image: url('https://cdn-icons-png.flaticon.com/128/126/126482.png');
+  background-image: url('../images/estrela-branca.png');
 }
 
 .div-audio {
@@ -69,4 +70,16 @@
   width: 95%;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 860px) {
+  .div-MusicaCard {
+    width: 46%;
+  }
+}
+
+@media (max-width: 480px) {
+  .div-MusicaCard {
+    width: 95%;
+  }
 }

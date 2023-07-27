@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
@@ -10,13 +11,15 @@ import '../css/album.css';
 class Album extends React.Component {
   constructor() {
     super();
-
     this.state = {
       musicList: [],
       isLoading: true,
       favoritesSongs: [],
       albumProperties: [],
+      // altura: 0,
     };
+
+    // this.myRef = React.createRef();
   }
 
   async componentDidMount() {
@@ -32,7 +35,15 @@ class Album extends React.Component {
 
     const listDasMusicas = await getFavoriteSongs();
     this.setState({ favoritesSongs: listDasMusicas });
+
+    // this.handleCarousel();
   }
+
+  // handleCarousel = () => {
+  //   const HeightTotal = this.myRef.current?.scrollHeight;
+  //   const Heightfixo = this.myRef.current?.offsetHeight;
+  //   this.setState({ altura: HeightTotal - Heightfixo });
+  // };
 
   favoritaMusic = async ({ target }) => {
     const { musicList, favoritesSongs } = this.state;
@@ -70,7 +81,9 @@ class Album extends React.Component {
   };
 
   render() {
-    const { musicList, isLoading, favoritesSongs, albumProperties } = this.state;
+    const {
+      musicList, isLoading, favoritesSongs, albumProperties,
+    } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -96,17 +109,29 @@ class Album extends React.Component {
                 : <Loading />
             }
           </section>
-          <div className="todas-musicas">
-            { isLoading ? <Loading /> : musicList
-              .map(({ trackId, trackName, previewUrl }) => (
-                <MusicCard
-                  favoritaMusic={ this.favoritaMusic }
-                  favoritesSongs={ favoritesSongs }
-                  key={ trackId }
-                  trackId={ trackId }
-                  trackName={ trackName }
-                  previewUrl={ previewUrl }
-                />)) }
+          <div className="envolve-carrossel">
+            <div
+              // ref={ this.myRef }
+              className="todas-musicas"
+              // whileTap={ { cursor: 'grabbing' } }
+            >
+              <div
+                className="todas-musicas-inner"
+                // drag="y"
+                // dragConstraints={ { bottom: 0, top: -altura } }
+              >
+                { isLoading ? <Loading /> : musicList
+                  .map(({ trackId, trackName, previewUrl }) => (
+                    <MusicCard
+                      favoritaMusic={ this.favoritaMusic }
+                      favoritesSongs={ favoritesSongs }
+                      key={ trackId }
+                      trackId={ trackId }
+                      trackName={ trackName }
+                      previewUrl={ previewUrl }
+                    />)) }
+              </div>
+            </div>
           </div>
         </div>
       </div>
