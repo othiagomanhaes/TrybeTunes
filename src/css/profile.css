@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600&display=swap');
+
+
+#section-profile {
+  /* border: 1px solid red; */
+  width: 70%;
+  margin: 5% auto;
+  height: 500px;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(177, 175, 173, 0.6);
+  border-radius: 10px;
+  font-family: 'Asap', sans-serif;
+}
+
+#div-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 1px solid blue; */
+  border-radius: 10px;
+  width: 30%;
+  height: 70%;
+  /* background-color: rgba(177, 175, 173, 0.6); */
+}
+
+#div-img img {
+  border-radius: 100%;
+  width: 85%;
+  height: 65%;
+  border: 1px solid gray;
+}
+
+#link-div {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+#link-div:hover {
+  font-weight: 700;
+}
+
+#description-profile {
+  /* text-align: left; */
+  /* border: 1px solid yellow; */
+  width: 65%;
+  height: 80%;
+  /* background-color: rgba(177, 175, 173, 0.6); */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-profile {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  text-align: center;
+  /* border: 1px solid green; */
+}
+
+#p-descroption {
+  text-align: justify;
+}
+
+@media (max-width: 860px) {
+  #section-profile {
+    flex-direction: column;
+    height: 95%;
+    justify-content: space-around;
+  }
+
+  #div-img {
+    margin: 5%;
+  }
+
+  .div-profile {
+    flex-wrap: wrap;
+    width: 100%;
+    word-break: break-all;
+  }
+}

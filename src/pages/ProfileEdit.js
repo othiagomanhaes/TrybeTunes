@@ -45,7 +45,7 @@ class ProfileEdit extends React.Component {
     // this.setState({ isLoading: true });
     await updateUser(obj);
     // this.setState({ isLoading: false });
-    history.push('/profile');
+    history.push('/trybetunes/profile');
   };
 
   validarEmail = (email) => { // Coment 1
