@@ -24,14 +24,14 @@
   border-radius: 10px;
   width: 30%;
   height: 70%;
-  /* background-color: rgba(177, 175, 173, 0.6); */
+  background-color: rgba(177, 175, 173, 0.6);
 }
 
 #div-img img {
   border-radius: 100%;
   width: 85%;
   height: 65%;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 
 #link-div {
@@ -49,7 +49,7 @@
   /* border: 1px solid yellow; */
   width: 65%;
   height: 80%;
-  /* background-color: rgba(177, 175, 173, 0.6); */
+  background-color: rgba(177, 175, 173, 0.6);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -59,14 +59,17 @@
 
 .div-profile {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 50%;
   text-align: center;
   /* border: 1px solid green; */
+  padding: 10px;
 }
 
 #p-descroption {
   text-align: justify;
+  word-break: break-all;
+  width: 85%;
 }
 
 @media (max-width: 860px) {
@@ -82,7 +85,7 @@
 
   .div-profile {
     flex-wrap: wrap;
-    width: 100%;
+    width: 90%;
     word-break: break-all;
   }
 }

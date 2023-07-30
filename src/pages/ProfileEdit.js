@@ -81,7 +81,7 @@ class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header />
-        <p>Editar perfil</p>
+        <p>Edit Profile</p>
         { isLoading
           ? <Loading />
           : (

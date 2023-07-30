@@ -56,4 +56,20 @@
   #header-component {
     margin: 2% 0;
   }
+
+  .item-list-link {
+    border-radius: 8px;
+  }
+
+  .item-list {
+    background-color: rgba(129, 129, 129, 0.6);
+    margin: 1%;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .item-list:hover {
+    background-color: rgba(231, 229, 229, 0.6)
+  }
 }
