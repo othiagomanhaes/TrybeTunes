@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from './Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import '../css/editProfile.css';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -81,11 +82,11 @@ class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header />
-        <p>Edit Profile</p>
+        <h1 id="edit-profile">Edit Profile</h1>
         { isLoading
           ? <Loading />
           : (
-            <form>
+            <form id="form-profile-edit">
               <img
                 src={ image }
                 alt={ user }
@@ -97,47 +98,57 @@ class ProfileEdit extends React.Component {
                 value={ image }
                 onChange={ this.attEstado }
                 data-testid="edit-input-image"
+                placeholder="Link da imagem (internet)"
+                id="input-link-prof-edit"
               />
 
-              <p>Nome</p>
-              <label htmlFor="editUser">
-                <input
-                  id="editUser"
-                  name="user"
-                  value={ user }
-                  onChange={ this.attEstado }
-                  data-testid="edit-input-name"
-                />
-              </label>
+              <div className="label-edit">
+                <p><strong>Nome:</strong></p>
+                <label htmlFor="editUser">
+                  <input
+                    id="editUser"
+                    name="user"
+                    value={ user }
+                    onChange={ this.attEstado }
+                    data-testid="edit-input-name"
+                  />
+                </label>
+              </div>
 
-              <p>Email</p>
-              <label htmlFor="editEmail">
-                <input
-                  id="editEmail"
-                  type="email"
-                  name="email"
-                  value={ email }
-                  onChange={ this.attEstado }
-                  data-testid="edit-input-email"
-                />
-              </label>
+              <div className="label-edit">
+                <p><strong>Email:</strong></p>
+                <label htmlFor="editEmail">
+                  <input
+                    id="editEmail"
+                    type="email"
+                    name="email"
+                    value={ email }
+                    onChange={ this.attEstado }
+                    data-testid="edit-input-email"
+                  />
+                </label>
+              </div>
 
-              <p>Descrição</p>
-              <label htmlFor="editDescription">
-                <textarea
-                  id="editDescription"
-                  name="description"
-                  value={ description }
-                  onChange={ this.attEstado }
-                  data-testid="edit-input-description"
-                />
-              </label>
+              <div className="label-edit">
+                <p><strong>Descrição:</strong></p>
+                <label htmlFor="editDescription">
+                  <textarea
+                    id="editDescription"
+                    name="description"
+                    value={ description }
+                    onChange={ this.attEstado }
+                    data-testid="edit-input-description"
+                    maxLength="300"
+                  />
+                </label>
+              </div>
 
               <button
                 data-testid="edit-button-save"
                 type="button"
                 disabled={ forbiddenButton }
                 onClick={ this.attUser }
+                id="btn-edit"
               >
                 Salvar
               </button>

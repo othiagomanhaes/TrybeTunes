@@ -55,7 +55,7 @@ class Profile extends React.Component {
                   <p>{email}</p>
                 </div>
                 <p><strong>Descrição:</strong></p>
-                <p id="p-descroption">{description}</p>
+                <p id="p-description">{description}</p>
               </div>
             </>)}
         </section>

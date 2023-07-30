@@ -66,7 +66,7 @@
   padding: 10px;
 }
 
-#p-descroption {
+#p-description {
   text-align: justify;
   word-break: break-all;
   width: 85%;
@@ -87,5 +87,9 @@
     flex-wrap: wrap;
     width: 90%;
     word-break: break-all;
+  }
+
+  #description-profile {
+    margin-bottom: 5%;
   }
 }

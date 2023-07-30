@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600&display=swap');
+
+#edit-profile {
+  text-align: center;
+  color: white;
+  font-family: 'Asap', sans-serif;
+}
+
+#form-profile-edit {
+  background-color: rgba(177, 175, 173, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto 5%;
+  color: white;
+  border-radius: 10px;
+}
+
+#form-profile-edit img {
+  width: 20%;
+  height: 160px;
+  margin: 2% auto;
+  border-radius: 100%;
+}
+
+#input-link-prof-edit {
+  width: 25%;
+  margin: 0 auto 3%;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+.label-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid red; */
+  width: 30%;
+  margin: 1%;
+}
+
+.label-edit label {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+#editDescription {
+  width: 100%;
+  resize: none;
+  height: 100px;
+}
+
+#btn-edit {
+  width: 20%;
+  margin-bottom: 1%;
+  height: 30px;
+  border-radius: 10px;
+  font-family: 'Asap', sans-serif;
+  color: rgba(58, 57, 56, 0.6);
+  border: none;
+  cursor: pointer;
+}
+
+#btn-enter:disabled {
+  background-color: rgba(177, 175, 173, 0.6);
+}
+
+
+@media (max-width: 860px) {
+  #form-profile-edit img {
+    width: 30%
+  }
+
+  #input-link-prof-edit {
+    width: 40%;
+  }
+
+  .label-edit {
+    width: 50%;
+  }
+
+  .label-edit label input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #form-profile-edit img {
+    width: 32%;
+    height: 100px;
+  }
+
+  #input-link-prof-edit {
+    width: 55%;
+  }
+
+  .label-edit {
+    width: 80%;
+  }
+
+  #btn-edit {
+    width: 32%;
+  }
+}
